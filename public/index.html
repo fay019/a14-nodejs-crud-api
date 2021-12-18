@@ -12,7 +12,8 @@
 <div class="container">
     <h1 class="text-danger">API Helpers</h1>
     <p class="h2 my-3">#A14 (Pflicht) - NodeJS CRUD APi.</p>
-    <p class="h4 my-3"><span>Beispiel:</span> Geburtstage <a href="http://localhost:6400/crudapi/DATA/NAME/(ID)">http://localhost:6400/crudapi/DATA/NAME/(ID)</a></p>
+    <p class="h4 my-3"><span>Beispiel:</span> Geburtstage <a href="http://localhost:6400/crudapi/DATA/NAME/(ID)">http://localhost:6400/crudapi/DATA/NAME/(ID)</a>
+    </p>
     <div class="bg-dark col-2 code">
         <div class="code-in">
             <code>DATA = birthday</code>
@@ -23,25 +24,32 @@
     <p class="h3 my-3">CRUD-Funktionen (Restful):</p>
     <p><span class="fw-bold">Create:</span> POST-Request mit Daten, ID im Response</p>
     <p><span class="fw-bold">Read:</span> GET-Request liefert alle Datensätze oder nur einen (ID)</p>
-    <p><span class="fw-bold">Update:</span> PUT-Request mit ID führt Update mit allen Daten aus, PATCH-Request mit ID macht Update nur auf gesendeten Daten</p>
+    <p><span class="fw-bold">Update:</span> PUT-Request mit ID führt Update mit allen Daten aus, PATCH-Request mit ID
+        macht Update nur auf gesendeten Daten</p>
     <p><span class="fw-bold">Delete:</span> DELETE-Request mit ID entfernt Datensatz</p>
     <p>Daten werden am Server in JSON-Dateien gespeichert.</p>
     <p><span class="fw-bold">Beispiel:</span> birthday-anna.json</p>
     <div class="h3 my-3">Der Response hat unterschiedliche HTTP-Status-Codes</div>
     <div class="response-status-codes my-2">
         <p><span class="text-success fw-bold">200</span> OK (bei GET Requests)</p>
-        <p><span class="text-success fw-bold">201</span> Created (neuer Datensatz wurde erzeugt, Antwort enthält zusätzlich ID des Datensatzes)</p>
-        <p><span class="text-success fw-bold">202</span> Accepted (Datensatz wurde geändert, Antwort enthält zusätzlich ID des Datensatzes)</p>
+        <p><span class="text-success fw-bold">201</span> Created (neuer Datensatz wurde erzeugt, Antwort enthält
+            zusätzlich ID des Datensatzes)</p>
+        <p><span class="text-success fw-bold">202</span> Accepted (Datensatz wurde geändert, Antwort enthält zusätzlich
+            ID des Datensatzes)</p>
         <p><span class="text-success fw-bold">204</span> No Content (Datensatz wurde erfolgreich gelöscht)</p>
-        <p><span class="text-danger fw-bold">404</span> Not found (wenn ein Datensatz mit bestimmter ID nicht gefunden wurde, oder PUT/DELETE ohne id aufgerufen wurde)</p>
+        <p><span class="text-danger fw-bold">404</span> Not found (wenn ein Datensatz mit bestimmter ID nicht gefunden
+            wurde, oder PUT/DELETE ohne id aufgerufen wurde)</p>
         <p><span class="text-danger fw-bold">405</span> Method Not Allowed (falsche Methode)</p>
     </div>
     <div class="done mt-4">
-        <p class="h4 my-3"><span>Beispiel:</span> NAME.csv herunterladen <a href="http://localhost:6400/crudapi/DATA/NAME/csv">http://localhost:6400/crudapi/DATA/NAME/csv</a></p>
+        <p class="h4 my-3"><span>Beispiel:</span> NAME.csv herunterladen <a
+                href="http://localhost:6400/crudapi/DATA/NAME/csv">http://localhost:6400/crudapi/DATA/NAME/csv</a></p>
     </div>
     <div class="h3 my-4">Zusatzaufgabe:</div>
     <ul>
-        <li>Daten sollen am Server in CSV statt in JSON Dateien gespeichert werden, so kann der Kunde sie leichter bearbeiten</li>
+        <li>Daten sollen am Server in CSV statt in JSON Dateien gespeichert werden, so kann der Kunde sie leichter
+            bearbeiten
+        </li>
         <li><span>es soll eine Möglichkeit zum Download der CSV-Datei geben</span></li>
         <li>geänderte CSV Daten können wieder upgeloadet werden</li>
     </ul>

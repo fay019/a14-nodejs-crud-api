@@ -2,7 +2,7 @@ const express = require( 'express' );
 const fs = require( 'fs' );
 const validator = require( 'validator' );
 const { nanoid } = require( 'nanoid' )
-const converter = require('json-2-csv');
+const converter = require( 'json-2-csv' );
 const app = express();
 const PORT = process.env.PORT || 6400;
 let fileExtension = 'json';
@@ -21,7 +21,7 @@ app.listen( PORT, () => {
  * if we don't have ID then we return all birthdays, else we make search and return only one
  */
 let readMyFile = ( path, res, id ) => {
-    console.log(typeof res)
+    console.log( typeof res )
     let myData;
     fs.readFile( path, ( err, data ) => {
         if ( err ) {
@@ -70,21 +70,21 @@ app.get( `/crudapi/birthday/:fileName/csv`, ( req, res ) => {
         if ( err ) {
             res.status( 404 ).end( 'file not found' );
         } else {
-            fs.readFile(filePath, (req, data) => {
-                converter.json2csv(JSON.parse(data), (err, csv) => {
-                    if (err) {
+            fs.readFile( filePath, ( req, data ) => {
+                converter.json2csv( JSON.parse( data ), ( err, csv ) => {
+                    if ( err ) {
                         throw err;
                     }
                     // print CSV string
-                    console.log(JSON.parse(data, fileName))
-                    console.log(csv);
+                    console.log( JSON.parse( data, fileName ) )
+                    console.log( csv );
                     res
-                        .setHeader("Content-Type", "text/csv")
-                        .setHeader("Content-Disposition", `attachment; filename=${fileName}.csv`)
-                        .status(200)
-                        .send(csv);
-                });
-            })
+                        .setHeader( "Content-Type", "text/csv" )
+                        .setHeader( "Content-Disposition", `attachment; filename=${fileName}.csv` )
+                        .status( 200 )
+                        .send( csv );
+                } );
+            } )
         }
     } )
 } )
@@ -109,11 +109,11 @@ app.post( `/crudapi/birthday/:fileName`, ( req, res ) => {
         let incomeData = { id, name, date }
         fs.stat( filePath, ( err, stats ) => {
             // create file if 1st time use POST request
-            if (err) {
-                fs.appendFile( filePath, JSON.stringify( [incomeData] ), 'utf8', ( err => {
+            if ( err ) {
+                fs.appendFile( filePath, JSON.stringify( [ incomeData ] ), 'utf8', ( err => {
                     res.status( 201 ).send( { "ID":id } )
                 } ) );
-            }else {
+            } else {
                 fs.readFile( filePath, ( err, data ) => {
                     let temp = JSON.parse( data );
                     temp.push( incomeData );
@@ -202,7 +202,7 @@ app.delete( '/crudapi/birthday/:fileName/:id', ( req, res ) => {
 
 // error link not find
 app.use( ( req, res ) => {
-    res.status( 404 ).sendFile('public/404.html', {root : __dirname});
+    res.status( 404 ).sendFile( 'public/404.html', { root:__dirname } );
 } );
 
 
